@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Calculadora de preço e margem de contribuição para licitações." />
+    <title>Margem Licita — Calculadora de Licitações</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Margem Licita — início">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><path d="M8 22.5 14 16l4 4 7-8"/><path d="M20 12h5v5"/></svg>
+          </span>
+          <span>Margem<span>Licita</span></span>
+        </a>
+        <div class="status"><span></span>Cálculo em tempo real</div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <p class="eyebrow">PRECIFICAÇÃO SEM PLANILHAS</p>
+          <h1>Saiba até onde você pode ir<br /><em>sem sacrificar sua margem.</em></h1>
+          <p>Informe os custos da licitação e veja o preço sugerido, os impostos e a sua margem de contribuição na hora.</p>
+        </section>
+
+        <section class="calculator" aria-label="Calculadora de margem">
+          <div class="input-panel">
+            <div class="panel-heading">
+              <span class="step">01</span>
+              <div><h2>Custos da operação</h2><p>Valores referentes a uma unidade ou ao lote completo.</p></div>
+            </div>
+
+            <div class="fields-grid">
+              <label class="field">
+                <span>Custo do produto</span>
+                <span class="money-input"><b>R$</b><input id="cost" inputmode="decimal" value="500,00" aria-label="Custo do produto" /></span>
+              </label>
+              <label class="field">
+                <span>Frete e logística</span>
+                <span class="money-input"><b>R$</b><input id="freight" inputmode="decimal" value="50,00" aria-label="Frete e logística" /></span>
+              </label>
+              <label class="field">
+                <span>Outros custos variáveis</span>
+                <span class="money-input"><b>R$</b><input id="otherCosts" inputmode="decimal" value="0,00" aria-label="Outros custos variáveis" /></span>
+              </label>
+              <label class="field">
+                <span>Margem desejada sobre o custo</span>
+                <span class="percent-input"><input id="profitRate" inputmode="decimal" value="25,00" aria-label="Margem desejada" /><b>%</b></span>
+              </label>
+            </div>
+
+            <div class="tax-box">
+              <div class="tax-title"><div><strong>Imposto do comércio</strong><small>Selecione pelo faturamento anual ou informe manualmente.</small></div><button id="taxMode" type="button">Usar taxa manual</button></div>
+              <div id="revenueMode" class="tax-control">
+                <label class="field wide"><span>Faturamento bruto nos últimos 12 meses</span><span class="money-input"><b>R$</b><input id="revenue" inputmode="decimal" value="150.000,00" aria-label="Faturamento bruto dos últimos 12 meses" /></span></label>
+                <div class="rate-card"><span>Alíquota encontrada</span><strong id="foundRate">4,00%</strong><small id="taxRange">Faixa de até R$ 180 mil</small></div>
+              </div>
+              <div id="manualMode" class="tax-control hidden">
+                <label class="field wide"><span>Alíquota manual</span><span class="percent-input"><input id="manualTax" inputmode="decimal" value="4,20" aria-label="Alíquota manual" /><b>%</b></span></label>
+                <p class="manual-note">Use a alíquota efetiva indicada pelo seu contador.</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="results-panel" aria-live="polite">
+            <div class="panel-heading light"><span class="step">02</span><div><h2>Resultado</h2><p>Preço mínimo para a margem definida.</p></div></div>
+            <div class="price-result"><span>PREÇO SUGERIDO</span><strong id="salePrice">R$ 715,00</strong><small>por unidade ou lote</small></div>
+            <div class="result-list">
+              <div><span>Custos totais</span><strong id="totalCosts">R$ 550,00</strong></div>
+              <div><span>Lucro desejado</span><strong id="profitAmount">R$ 137,50</strong></div>
+              <div><span>Impostos <small id="taxRateLabel">(4,00%)</small></span><strong id="taxAmount">R$ 27,50</strong></div>
+              <div class="contribution"><span>Margem de contribuição</span><strong id="contributionAmount">R$ 137,50</strong></div>
+            </div>
+            <div class="effective-margin">
+              <div><span>Margem sobre o preço final</span><strong id="effectiveRate">19,23%</strong></div>
+              <div class="meter"><span id="marginMeter"></span></div>
+            </div>
+            <button id="copySummary" class="copy-button" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+              Copiar resumo do cálculo
+            </button>
+          </aside>
+        </section>
+
+        <section class="tax-table-section">
+          <div><p class="eyebrow">REFERÊNCIA</p><h2>Faixas de imposto do comércio</h2><p>Alíquotas usadas automaticamente conforme a tabela fornecida.</p></div>
+          <div class="table-wrap"><table><thead><tr><th>Faturamento anual</th><th>Alíquota</th></tr></thead><tbody id="taxTable"></tbody></table></div>
+        </section>
+      </main>
+
+      <footer>Ferramenta de apoio à precificação. Confirme sua alíquota efetiva com a contabilidade antes de enviar a proposta.</footer>
+    </div>
+    <script src="logic.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
