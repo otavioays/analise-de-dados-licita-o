@@ -1,10 +1,18 @@
-# Margem Licita
+# Minha Calculadora de Licitações
 
-Aplicação web para calcular preço sugerido e margem de contribuição em licitações.
+Aplicação pessoal para calcular preço sugerido e margem de contribuição em licitações.
+
+**Versão atual:** 1.1.0 — calculadora editável e corrigida.
+
+## Aplicativo privado
+
+[Abrir a calculadora](https://minha-calculadora-licitacoes.otavio-augus-2838.chatgpt.site)
+
+O aplicativo publicado exige acesso autorizado. Os valores informados ficam salvos apenas no navegador do usuário.
 
 ## Como usar
 
-Abra `index.html` no navegador ou publique o repositório pelo GitHub Pages. Não há dependências nem etapa de build.
+Abra `index.html` no navegador. Todos os campos podem ser alterados e o resultado é recalculado imediatamente.
 
 ## Regra de cálculo
 
