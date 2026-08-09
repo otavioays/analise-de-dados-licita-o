@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Calculadora de preço e margem de contribuição para licitações." />
-    <title>Margem Licita — Calculadora de Licitações</title>
+    <title>Minha Calculadora de Licitações</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -13,20 +13,20 @@
   <body>
     <div class="page-shell">
       <header class="topbar">
-        <a class="brand" href="#" aria-label="Margem Licita — início">
+        <a class="brand" href="#" aria-label="Minha Margem — início">
           <span class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 32 32"><path d="M8 22.5 14 16l4 4 7-8"/><path d="M20 12h5v5"/></svg>
           </span>
-          <span>Margem<span>Licita</span></span>
+          <span>Minha<span>Margem</span></span>
         </a>
         <div class="status"><span></span>Cálculo em tempo real</div>
       </header>
 
       <main>
         <section class="hero">
-          <p class="eyebrow">PRECIFICAÇÃO SEM PLANILHAS</p>
-          <h1>Saiba até onde você pode ir<br /><em>sem sacrificar sua margem.</em></h1>
-          <p>Informe os custos da licitação e veja o preço sugerido, os impostos e a sua margem de contribuição na hora.</p>
+          <p class="eyebrow">MINHA CALCULADORA DE LICITAÇÕES</p>
+          <h1>Calcule seu preço<br /><em>com segurança.</em></h1>
+          <p>Altere qualquer valor abaixo. O resultado é atualizado automaticamente e seus últimos dados ficam salvos somente neste navegador.</p>
         </section>
 
         <section class="calculator" aria-label="Calculadora de margem">
@@ -85,6 +85,7 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
               Copiar resumo do cálculo
             </button>
+            <button id="resetCalculator" class="reset-button" type="button">Limpar e começar novo cálculo</button>
           </aside>
         </section>
 
@@ -94,7 +95,7 @@
         </section>
       </main>
 
-      <footer>Ferramenta de apoio à precificação. Confirme sua alíquota efetiva com a contabilidade antes de enviar a proposta.</footer>
+      <footer>Uso pessoal · Os valores ficam armazenados somente no seu navegador. Confirme sua alíquota efetiva com a contabilidade.</footer>
     </div>
     <script src="logic.js"></script>
     <script src="app.js"></script>
